@@ -1,18 +1,20 @@
-import React from 'react';
 
 
-const Form = ({getWeather}) => {
+import {getWeather} from "../featurs/api/asyncWeatherAction.js";
+import {useDispatch} from "react-redux";
 
-    const handleGetWeather = e => {
-        e.preventDefault();
-        const city = e.currentTarget.city.value.trim();
-        getWeather(city);
-    }
+
+const Form = () => {
+
+
+    const dispatch = useDispatch();
+
+
 
     return (
-        <form onSubmit={handleGetWeather}>
+        <form >
             <input type={'text'} name={'city'}/>
-            <button type={'submit'}>Get Weather</button>
+            <button onClick={() => dispatch(getWeather())}>Get Weather</button>
         </form>
     );
 };
