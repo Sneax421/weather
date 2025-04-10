@@ -1,12 +1,15 @@
 import React from 'react';
 import Form from "./Form.jsx";
 import Weather from "./Weather.jsx";
+import {useDispatch, useSelector} from "react-redux";
 
 
 
 const Data = () => {
 
-    // const weather = useSelector(state => state.weather);
+    const weather = useSelector(state => state.weather);
+    const message = useSelector(state => state.message);
+    const dispatch = useDispatch();
 
     // const [weatherInfo, setWeatherInfo] = useState({});
     // const [message, setMessage] = useState('Enter city name');

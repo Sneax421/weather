@@ -9,12 +9,18 @@ const Form = () => {
 
     const dispatch = useDispatch();
 
+    const handleGetWeather = e => {
+        e.preventDefault();
+        const city = e.currentTarget.city.value.trim();
+        dispatch(getWeather(city));
+    }
+
 
 
     return (
-        <form >
+        <form onSubmit={handleGetWeather} >
             <input type={'text'} name={'city'}/>
-            <button onClick={() => dispatch(getWeather())}>Get Weather</button>
+            <button type={'submit'}>Get Weather</button>
         </form>
     );
 };
